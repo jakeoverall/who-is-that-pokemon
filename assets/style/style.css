@@ -1,0 +1,13 @@
+/* BASIC STYLES HERE */
+.pokemon-picture {
+  transition: all 3s ease-in;
+  filter: brightness(0);
+}
+.pokemon-container:hover .pokemon-picture{
+  filter: brightness(1);
+}
+
+body{
+  overscroll-behavior: none;
+  overflow: hidden;
+}
