@@ -6,7 +6,7 @@ import { loadState } from "./Utils/Store.js"
 
 function loadPlayer() {
   // @ts-ignore
-  const player = JSON.parse(window.localStorage.getItem('player')) || { name: prompt('What is your Name?'), points: 0 }
+  const player = JSON.parse(window.localStorage.getItem('player')) || { name: prompt('What is your Name?'), points: 0, pokedex: [] }
   return player
 }
 
@@ -14,7 +14,7 @@ class AppState extends EventEmitter {
   /** @type {import('./Models/Value').Value[]} */
   values = loadState('values', Value)
 
-  /** @type {{name: string, points: number}} */
+  /** @type {{name: string, points: number, pokedex:Pokemon[]}} */
   player = loadPlayer()
 
   /** @type {import('./Models/Pokemon').Pokemon[]} */

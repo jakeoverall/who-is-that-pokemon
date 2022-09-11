@@ -8,6 +8,10 @@ function save() {
 
 class PokemonService {
   awardPoint(point) {
+    if (point > 0) {
+      appState.player.pokedex.push(appState.activePokemon)
+      this.removePokemon()
+    }
     appState.player.points += point
     appState.emit('player')
     PlayerService.savePlayer()
@@ -22,6 +26,11 @@ class PokemonService {
     const json = await (await fetch('pokemon.json')).json()
     appState.pokemon = json
     save()
+  }
+
+  removePokemon() {
+    appState.pokemon = appState.pokemon.filter(p => p.id != appState.activePokemon.id)
+    saveState('pokemon', appState.pokemon)
   }
 
 }

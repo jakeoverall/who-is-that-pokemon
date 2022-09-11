@@ -7,7 +7,7 @@ export class PlayerService {
   }
 
   static resetPlayer() {
-    appState.player = { name: prompt('What is your Name?') || '', points: 0 }
+    appState.player = { name: prompt('What is your Name?') || '', points: 0, pokedex: [] }
   }
 
 }

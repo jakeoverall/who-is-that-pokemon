@@ -9,7 +9,7 @@ export class Pokemon {
   get CardTemplate() {
     return /*html*/`
       <div class="pokemon-container">
-        <img src="${this.picture}" alt="" class="pokemon-picture img-fluid">
+        <img src="${this.picture}" alt="" class="pokemon-picture img-fluid" onerror="app.pokemonController.errorSkip();">
 
       <div class="on-hover">
           <h4 class="text-capitalize my-3">

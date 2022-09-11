@@ -30,11 +30,15 @@ export class PokemonController {
     pokemonService.setRandomPokemon()
   }
 
-  answer(point){
+  answer(point) {
     pokemonService.awardPoint(point)
     this.setRandomPokemon()
   }
 
+  errorSkip() {
+    pokemonService.removePokemon()
+    this.setRandomPokemon()
+  }
 
 
 }
