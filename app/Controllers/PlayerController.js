@@ -27,8 +27,13 @@ function drawPokedex(query = '') {
   if (query.length) {
     pokemon = appState.player.pokedex.filter(p => p.name.includes(query))
   }
-  
-  let t = ''
+
+  let t = `<div class="text-end me-3">
+    <p class="">
+      <i class="mdi mdi-pokeball pb-1" style="border-bottom: 1px solid red; color: red;"></i>
+      <b class="ms-1"> ${query.length ? pokemon.length + ' / ' + appState.player.pokedex.length : pokemon.length}</b>
+    </p>
+  </div>`
   pokemon.forEach(p => t += p.PokedexEntry)
   setHTML('captures', t)
 }
