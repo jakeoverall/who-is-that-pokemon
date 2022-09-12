@@ -11,6 +11,7 @@ export class PlayerService {
     appState.player = { name: prompt('What is your Name?') || '', points: 0, pokedex: [] }
     pokemonService.getPokemon(true)
     pokemonService.setRandomPokemon()
+    this.savePlayer()
   }
 
 }
