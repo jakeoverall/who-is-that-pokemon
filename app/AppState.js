@@ -7,6 +7,12 @@ import { loadState } from "./Utils/Store.js"
 function loadPlayer() {
   // @ts-ignore
   const player = JSON.parse(window.localStorage.getItem('player')) || { name: prompt('What is your Name?'), points: 0, pokedex: [] }
+
+  if (!player.pokedex) {
+    player.pokedex = []
+  }
+  player.pokedex = player.pokedex.map(p => new Pokemon(p))
+
   return player
 }
 

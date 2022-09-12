@@ -1,13 +1,22 @@
 /* BASIC STYLES HERE */
 .pokemon-picture {
-  transition: all 3s ease-in;
+  transition: all 1.25s ease-in;
   filter: brightness(0);
+  max-height: 45vh;
+  max-width: 90vw;
 }
-.pokemon-container:hover .pokemon-picture{
+
+.pokemon-container:hover .pokemon-picture {
   filter: brightness(1);
 }
 
-body{
+body {
   overscroll-behavior: none;
   overflow: hidden;
+  background-color: royalblue;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-image: url(../img/red-bg.png);
+
 }

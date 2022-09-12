@@ -5,11 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <!-- <link rel="icon" href="https://bcw.blob.core.windows.net/public/img/9977764104160066"> -->
-  <!-- <link rel="stylesheet"
+  <link rel="icon" href="assets/img/1.png">
+  <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/7.0.96/css/materialdesignicons.min.css"
     integrity="sha512-fXnjLwoVZ01NUqS/7G5kAnhXNXat6v7e3M9PhoMHOTARUMCaf5qNO84r5x9AFf5HDzm3rEZD8sb/n6dZ19SzFA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="assets/style/main.css">
   <link rel="stylesheet" href="assets/style/style.css">
   <title>who-is-that-pokemon</title>
@@ -22,6 +22,10 @@
         <img src="assets/img/1.png" height="45" alt="" loading="lazy">
         <span class="ms-2">Who's That Pokemon?</span>
       </a>
+      <div class="text-end w-100 pe-2">
+        <button class="btn text-white" data-bs-toggle="offcanvas" data-bs-target="#pokedex" onclick="app.playerController.drawPokedex()"><i
+            class="mdi mdi-pokeball"></i></button>
+      </div>
     </nav>
   </header>
   <main>
@@ -34,12 +38,40 @@
     </div>
   </main>
 
-  <footer class="row bg-dark text-light selectable" onclick="app.playerController.resetPlayer()">
-    <div class="col-12">
-      <div id="player-stats"></div>
-    </div>
-  </footer>
+  <section class="container-fluid">
+    <footer class="row bg-dark text-light">
+      <div class="col-12">
+        <div id="player-stats"></div>
+      </div>
+    </footer>
+  </section>
 
+  <div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="pokedex"
+    aria-labelledby="pokedexLabel">
+    <div class="offcanvas-header bg-dark text-white">
+      <h5 class="offcanvas-title" id="pokedexLabel">
+        <img src="assets/img/1.png" height="45" alt="" loading="lazy">
+        <span class="ms-2">Your Pokedex</span>
+      </h5>
+      <button type="button" class="btn-close invert" style="opacity: 1; filter: invert(1);" data-bs-dismiss="offcanvas"
+        aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="mb-3 input-group">
+        <input class="form-control" type="text" onkeyup="app.playerController.filterPokedex()">
+        <button class="input-group-addon btn btn-dark text-white">
+          <i class="mdi mdi-magnify"></i>
+        </button>
+      </div>
+      <div id="captures"></div>
+    </div>
+  </div>
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"
+    defer></script>
   <script src="app/App.js" type="module"></script>
 </body>
 

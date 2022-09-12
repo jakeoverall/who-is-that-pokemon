@@ -21,8 +21,9 @@ class PokemonService {
     const randomI = Math.floor(Math.random() * appState.pokemon.length)
     appState.activePokemon = appState.pokemon[randomI]
   }
-  async getPokemon() {
-    if (appState.pokemon.length) { return }
+  
+  async getPokemon(forceReset) {
+    if (appState.pokemon.length && !forceReset) { return }
     const json = await (await fetch('pokemon.json')).json()
     appState.pokemon = json
     save()
